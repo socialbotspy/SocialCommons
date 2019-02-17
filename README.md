@@ -1,10 +1,17 @@
 
-
+## Project supported
 
 - FacebookPy
 - TwitterPy
 - PinterestPy
 - LinkedinPy
+- YoutubePy
+- TumblrPy
+- RedditPy
+- QuoraPy
+- SnapPy
+- WhatsappPy
+- WeChatPy
 
 [![MIT license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/socialbotspy/FacebookPy/blob/master/LICENSE)
 [![built with Selenium](https://img.shields.io/badge/built%20with-Selenium-yellow.svg)](https://github.com/SeleniumHQ/selenium)
