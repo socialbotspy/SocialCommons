@@ -26,10 +26,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 
-from .time_util import sleep
-from .time_util import sleep_actual
-from .database_engine import get_database
-from .quota_supervisor import quota_supervisor
+from socialcommons.time_util import sleep
+from socialcommons.time_util import sleep_actual
+from socialcommons.database_engine import get_database
+from socialcommons.quota_supervisor import quota_supervisor
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import WebDriverException
