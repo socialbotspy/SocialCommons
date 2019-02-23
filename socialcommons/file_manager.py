@@ -11,7 +11,7 @@ from platform import python_version
 from instapy_chromedriver import binary_path
 
 from socialcommons.util import highlight_print
-from socialcommons.exceptions import FacebookPyError
+from socialcommons.exceptions import SocialPyError
 
 
 def get_workspace(Settings):
@@ -197,7 +197,7 @@ def validate_path(path):
                    "\n\t{}".format(exc_name,
                                    path,
                                    str(exc).encode("utf-8")))
-            raise FacebookPyError(msg)
+            raise SocialPyError(msg)
 
 
 def get_chromedriver_location(Settings):
