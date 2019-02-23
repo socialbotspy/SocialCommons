@@ -8,7 +8,6 @@ from socialcommons.util import update_activity
 
 from selenium.common.exceptions import WebDriverException
 
-
 def get_log_time():
     ''' this method will keep same format for all recored'''
     log_time = datetime.now().strftime('%Y-%m-%d %H:%M')

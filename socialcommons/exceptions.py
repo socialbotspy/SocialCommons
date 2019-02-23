@@ -1,7 +1,7 @@
 """ Custom Exceptions """
 
 
-class FacebookPyError(Exception):
-    """ General error for FacebookPy exceptions """
+class SocialPyError(Exception):
+    """ General error for SocialPy exceptions """
 
     pass
