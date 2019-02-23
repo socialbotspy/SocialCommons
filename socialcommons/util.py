@@ -1585,7 +1585,7 @@ def click_visibly(browser, Settings, element):
     return True
 
 
-def get_action_delay(action):
+def get_action_delay(action, Settings):
     """ Get the delay time to sleep after doing actions """
     defaults = {"like": 2,
                 "comment": 2,
