@@ -862,7 +862,7 @@ def get_following_count(browser, base_url, username, userid, logger, Settings):
     except WebDriverException:
         try:
             following_count = format_number(
-                browser.find_element_by_xpath('//a[@name="Following"]/span[2]').text)
+                browser.find_element_by_xpath(Settings.following_count_xpath).text)
 
         except NoSuchElementException as e:
             logger.error(e)
@@ -892,7 +892,7 @@ def get_followers_count(browser, base_url, username, userid, logger, Settings):
     # except WebDriverException:
     try:
         followers_count = format_number(
-            browser.find_element_by_xpath('//a[@name="Followers"]/span[2]').text)
+            browser.find_element_by_xpath(Settings.followers_count_xpath).text)
         if followers_count == 0:
             followers_count = get_followers_count_nonfriend_public_case(browser, username, userid, logger)
     except NoSuchElementException as e:
