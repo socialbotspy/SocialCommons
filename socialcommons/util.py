@@ -1172,7 +1172,7 @@ def ping_server(host, logger):
 
     return True
 
-def emergency_exit(browser, Settings, base_url, username, userid, logger, logfolder):
+def emergency_exit(browser, Settings, base_url, username, userid, logger, logfolder, login_state=None):
     """ Raise emergency if the is no connection to server OR if user is not
     logged in """
     using_proxy = True if Settings.connection_type == "proxy" else False
@@ -1185,7 +1185,8 @@ def emergency_exit(browser, Settings, base_url, username, userid, logger, logfol
 
     # check if the user is logged in
     auth_method = "activity counts"
-    login_state = check_authorization(browser, Settings, base_url, username, userid, method, logger, logfolder)
+    if login_state == None:
+        login_state = check_authorization(browser, Settings, base_url, username, userid, method, logger, logfolder)
     if login_state is False:
         return True, "not logged in"
 
