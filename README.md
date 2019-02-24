@@ -1,7 +1,7 @@
 
 ## Project supported
 
-- FacebookPy
+- [FacebookPy](https://github.com/socialbotspy/FacebookPy)
 - TwitterPy
 - PinterestPy
 - LinkedinPy
@@ -12,6 +12,10 @@
 - SnapPy
 - WhatsappPy
 - WeChatPy
+- DiscordPy
+- SlackPy
+- [GithubPy](https://github.com/socialbotspy/GithubPy)
+- TwitchPy
 
 [![MIT license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/socialbotspy/FacebookPy/blob/master/LICENSE)
 [![built with Selenium](https://img.shields.io/badge/built%20with-Selenium-yellow.svg)](https://github.com/SeleniumHQ/selenium)
