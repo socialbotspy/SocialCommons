@@ -3,6 +3,7 @@
 
 - [FacebookPy](https://github.com/socialbotspy/FacebookPy)
 - TwitterPy
+- Google+
 - PinterestPy
 - LinkedinPy
 - YoutubePy
