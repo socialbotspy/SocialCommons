@@ -35,7 +35,7 @@ def get_workspace(Settings):
 
 def set_workspace(Settings, path=None):
     """ Set a custom workspace for use """
-    if not Settings.FACEBOOKPY_IS_RUNNING:
+    if not Settings.IS_RUNNING:
         if path:
             path = verify_workspace_name(path, Settings)
             workspace_is_new = differ_paths(WORKSPACE["path"], path)
