@@ -12,7 +12,7 @@ from socialcommons.time_util import get_time
 from socialcommons.database_engine import get_database
 
 
-def quota_supervisor(Settings, job, update=False):
+def quota_supervisor(Settings, Storage, job, update=False):
     """ Supervise activity flow through action engines and take measures"""
     # --ACTION----------ENGINE--------------FILE--------------OPTION--- #
     #   Like         `like_image`       [like_util.py]      jump|sleep  #
@@ -29,7 +29,7 @@ def quota_supervisor(Settings, job, update=False):
         # in-file global variables for the QS family
         global records, logger, this_minute, this_hour, today
 
-        records = Settings.Storage.record_activity
+        records = Storage.record_activity
         logger = Settings.logger
         this_minute, this_hour, today = get_time(["this_minute",
                                                   "this_hour",
