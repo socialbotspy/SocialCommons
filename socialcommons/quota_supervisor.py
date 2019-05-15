@@ -29,7 +29,7 @@ def quota_supervisor(Settings, job, update=False):
         # in-file global variables for the QS family
         global records, logger, this_minute, this_hour, today
 
-        records = Storage.record_activity
+        records = Settings.Storage.record_activity
         logger = Settings.logger
         this_minute, this_hour, today = get_time(["this_minute",
                                                   "this_hour",
