@@ -1,5 +1,5 @@
 
-## Project aspired to be supported
+## Projects aspired to be supported
 
 - [FacebookPy](https://github.com/socialbotspy/FacebookPy)
 - TwitterPy
