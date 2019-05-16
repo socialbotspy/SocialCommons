@@ -5,7 +5,7 @@
 - TwitterPy
 - Google+
 - PinterestPy
-- LinkedinPy
+- [LinkedinPy](https://github.com/socialbotspy/LinkedinPy)
 - YoutubePy
 - TumblrPy
 - RedditPy
