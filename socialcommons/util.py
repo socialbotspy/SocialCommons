@@ -1882,6 +1882,8 @@ def parse_cli_args():
     parser.add_argument(
         "-p", "--password", help="Password", type=str, metavar="123")
     parser.add_argument(
+        "-e", "--email", help="login email", type=str, metavar="abcd@gmail.com")
+    parser.add_argument(
         "-pd", "--page-delay", help="Implicit wait", type=int, metavar="25")
     parser.add_argument(
         "-pa", "--proxy-address", help="Proxy address",
