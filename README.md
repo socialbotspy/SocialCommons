@@ -2,7 +2,7 @@
 ## Projects aspired to be supported
 
 - [FacebookPy](https://github.com/socialbotspy/FacebookPy)
-- TwitterPy
+- [TwitterPy](https://github.com/socialbotspy/TwitterPy)
 - Google+
 - PinterestPy
 - [LinkedinPy](https://github.com/socialbotspy/LinkedinPy)
