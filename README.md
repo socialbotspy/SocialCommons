@@ -41,3 +41,7 @@ Thank you to all our backers! 🙏
 ### Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+
+
+## Help build socialbotspy
+Check out this short guide on [how to start contributing!](https://github.com/InstaPy/instapy-docs/blob/master/CONTRIBUTORS.md).
