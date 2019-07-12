@@ -33,6 +33,7 @@ def set_selenium_local_session(proxy_address,
 
     if use_firefox:
         firefox_options = Firefox_Options()
+        firefox_options.set_preference("dom.webnotifications.enabled", False)
         if headless_browser:
             firefox_options.add_argument('-headless')
 
