@@ -50,7 +50,7 @@ def set_selenium_local_session(proxy_address,
             firefox_profile.set_preference('network.proxy.ssl', proxy_address)
             firefox_profile.set_preference('network.proxy.ssl_port', proxy_port)
         firefox_profile.set_preference('dom.webnotifications.enabled', False)
-        browser = webdriver.Firefox(firefox_profile=firefox_profile, options=firefox_options)
+        browser = webdriver.Firefox(firefox_profile=firefox_profile, firefox_options=firefox_options)
     else:
         chromedriver_location = get_chromedriver_location(Settings)
         chrome_options = Options()
