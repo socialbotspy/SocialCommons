@@ -35,34 +35,22 @@ def set_selenium_local_session(proxy_address,
         firefox_options = Firefox_Options()
         if headless_browser:
             firefox_options.add_argument('-headless')
-
         if browser_profile_path is not None:
-            firefox_profile = webdriver.FirefoxProfile(
-                browser_profile_path)
+            firefox_profile = webdriver.FirefoxProfile(browser_profile_path)
         else:
             firefox_profile = webdriver.FirefoxProfile()
-
-        firefox_profile.set_preference("dom.webnotifications.enabled", False)
-
         if disable_image_load:
             # permissions.default.image = 2: Disable images load,
             # this setting can improve pageload & save bandwidth
             firefox_profile.set_preference('permissions.default.image', 2)
-
         if proxy_address and proxy_port:
             firefox_profile.set_preference('network.proxy.type', 1)
-            firefox_profile.set_preference('network.proxy.http',
-                                           proxy_address)
-            firefox_profile.set_preference('network.proxy.http_port',
-                                           proxy_port)
-            firefox_profile.set_preference('network.proxy.ssl',
-                                           proxy_address)
-            firefox_profile.set_preference('network.proxy.ssl_port',
-                                           proxy_port)
-
-        browser = webdriver.Firefox(firefox_profile=firefox_profile,
-                                    options=firefox_options)
-
+            firefox_profile.set_preference('network.proxy.http', proxy_address)
+            firefox_profile.set_preference('network.proxy.http_port', proxy_port)
+            firefox_profile.set_preference('network.proxy.ssl', proxy_address)
+            firefox_profile.set_preference('network.proxy.ssl_port', proxy_port)
+        firefox_profile.set_preference('dom.webnotifications.enabled', False)
+        browser = webdriver.Firefox(firefox_profile=firefox_profile, options=firefox_options)
     else:
         chromedriver_location = get_chromedriver_location(Settings)
         chrome_options = Options()
