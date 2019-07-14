@@ -33,7 +33,6 @@ def set_selenium_local_session(proxy_address,
 
     if use_firefox:
         firefox_options = Firefox_Options()
-        firefox_options.set_preference("dom.webnotifications.enabled", False)
         if headless_browser:
             firefox_options.add_argument('-headless')
 
@@ -42,6 +41,8 @@ def set_selenium_local_session(proxy_address,
                 browser_profile_path)
         else:
             firefox_profile = webdriver.FirefoxProfile()
+
+        firefox_profile.set_preference("dom.webnotifications.enabled", False)
 
         if disable_image_load:
             # permissions.default.image = 2: Disable images load,
