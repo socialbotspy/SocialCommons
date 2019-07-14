@@ -65,15 +65,6 @@ def set_selenium_local_session(proxy_address,
         browser = webdriver.Firefox(firefox_profile=firefox_profile,
                                     options=firefox_options)
 
-        # converts to custom browser
-        # browser = convert_selenium_browser(browser)
-
-        # authenticate with popup alert window
-        if (proxy_username and proxy_password):
-            proxy_authentication(browser,
-                                 logger,
-                                 proxy_username,
-                                 proxy_password)
     else:
         chromedriver_location = get_chromedriver_location(Settings)
         chrome_options = Options()
