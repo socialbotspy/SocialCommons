@@ -34,7 +34,7 @@ def set_selenium_local_session(proxy_address,
     if use_firefox:
         firefox_options = Firefox_Options()
         if headless_browser:
-            firefox_options.add_argument('-headless')
+            firefox_options.add_argument('--headless')
         if browser_profile_path is not None:
             firefox_profile = webdriver.FirefoxProfile(browser_profile_path)
         else:
