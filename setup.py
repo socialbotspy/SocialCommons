@@ -15,7 +15,7 @@ setup(
         'requests==2.21.0',
         'selenium==3.141.0',
         'setuptools==39.2.0'
-    ]
+    ],
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
     long_description=open('README.md').read(),
 )
