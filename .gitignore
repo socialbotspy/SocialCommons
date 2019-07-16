@@ -1,2 +1,5 @@
 */**/__pycache__
 dist
+SocialCommons.egg-info
+build
+
