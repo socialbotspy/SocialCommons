@@ -18,7 +18,6 @@ setup(
     packages=['socialcommons',],
     install_requires=dependencies,
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    long_description=open('README.md').read(),
 )
 
 
