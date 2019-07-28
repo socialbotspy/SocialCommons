@@ -2,4 +2,4 @@
 dist
 SocialCommons.egg-info
 build
-
+*.log

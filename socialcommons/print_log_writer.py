@@ -157,7 +157,7 @@ def log_record_all_followed(login, followed, logger, logfolder, logtime,
         logger.error("log_record_all_followed_pool error {}".format(str(e)))
 
 
-def log_record_all_friended(login, followed, logger, logfolder, logtime,
+def log_record_all_friended(login, friended, logger, logfolder, logtime,
                             user_id):
     """logs all friended ever to a pool that will never be erase"""
     try:
