@@ -5,7 +5,7 @@
 - [FacebookPy](https://github.com/socialbotspy/FacebookPy)
 - [TwitterPy](https://github.com/socialbotspy/TwitterPy)
 - [GooglePy](https://github.com/socialbotspy/GooglePy)
-- Google+
+- [GPlusPy](https://github.com/socialbotspy/GPlusPy)
 - [PinterestPy](https://github.com/socialbotspy/PinterestPy)
 - [LinkedinPy](https://github.com/socialbotspy/LinkedinPy)
 - [MediumPy](https://github.com/socialbotspy/MediumPy)
