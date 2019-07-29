@@ -10,7 +10,7 @@
 - [LinkedinPy](https://github.com/socialbotspy/LinkedinPy)
 - [MediumPy](https://github.com/socialbotspy/MediumPy)
 - [YoutubePy](https://github.com/socialbotspy/YoutubePy)
-- TumblrPy
+- [TumblrPy](https://github.com/socialbotspy/TumblrPy)
 - [RedditPy](https://github.com/socialbotspy/RedditPy)
 - [QuoraPy](https://github.com/socialbotspy/QuoraPy)
 - SnapPy
