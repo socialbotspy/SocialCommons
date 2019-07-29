@@ -21,6 +21,7 @@
 - DiscordPy
 - SlackPy
 - [GithubPy](https://github.com/socialbotspy/GithubPy)
+- TelegramPy
 - TwitchPy
 - TikTokPy
 - PeriscopePy
