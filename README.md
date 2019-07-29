@@ -11,7 +11,7 @@
 - [MediumPy](https://github.com/socialbotspy/MediumPy)
 - [YoutubePy](https://github.com/socialbotspy/YoutubePy)
 - TumblrPy
-- RedditPy
+- [RedditPy](https://github.com/socialbotspy/RedditPy)
 - [QuoraPy](https://github.com/socialbotspy/QuoraPy)
 - SnapPy
 - [WhatsappPy](https://github.com/socialbotspy/WhatsappPy)
