@@ -852,7 +852,7 @@ def get_following_count(browser, base_url, username, userid, logger, Settings):
     if base_url[-1] != '/':
         base_url = base_url + '/'
     user_link = base_url + "{}/following".format(userid)
-    web_address_navigator( browser, user_link, Settings)
+    web_address_navigator( browser, user_link, logger, Settings)
 
     try:
         following_count = browser.execute_script(
@@ -883,7 +883,7 @@ def get_followers_count(browser, base_url, username, userid, logger, Settings):
     if not base_url.endswith('/'):
         base_url = base_url + '/'
     user_link = base_url + "{}/followers".format(userid)
-    web_address_navigator( browser, user_link, Settings)
+    web_address_navigator( browser, user_link, logger, Settings)
 
     # try:
     #     followers_count = browser.execute_script(
@@ -909,14 +909,14 @@ def get_relationship_counts(browser, base_url, username, userid, logger, Setting
     return followers_count, following_count
 
 
-def web_address_navigator(browser, link, Settings):
+def web_address_navigator(browser, link, logger, Settings):
     """Checks and compares current URL of web page and the URL to be
     navigated and if it is different, it does navigate"""
     current_url = get_current_url(browser)
     total_timeouts = 0
     page_type = None  # file or directory
 
-    print("Navigating from", current_url, "To", link)
+    logger.info("Navigating from {} To {}".format(current_url, link))
     # remove slashes at the end to compare efficiently
     if current_url is not None and current_url.endswith('/'):
         current_url = current_url[:-1]
@@ -1240,7 +1240,7 @@ def check_authorization(browser, Settings, base_url, username, userid, method, l
     if not base_url.endswith('/'):
         base_url = base_url + '/'
     profile_link = base_url + '{}'.format(userid)
-    web_address_navigator(browser, profile_link, Settings)
+    web_address_navigator(browser, profile_link, logger, Settings)
     logger.critical("--> '{}' is not logged in!\n".format(username))
     nav = browser.find_elements_by_xpath('//div[@role="navigation"]')
     if len(nav) >= 1:
@@ -1441,7 +1441,7 @@ def get_username_from_id(browser, base_url, user_id, logger):
     post_url = u"{}&variables={}".format(graphql_query_URL,
                                          str(json.dumps(variables)))
 
-    web_address_navigator( browser, post_url, Settings)
+    web_address_navigator( browser, post_url, logger, Settings)
     try:
         pre = browser.find_element_by_tag_name("pre").text
     except NoSuchElementException:
@@ -1457,7 +1457,7 @@ def get_username_from_id(browser, base_url, user_id, logger):
             post_code = user_data["edges"][0]["node"]["shortcode"]
             post_page = base_url + "/p/{}".format(post_code)
 
-            web_address_navigator( browser, post_page, Settings)
+            web_address_navigator( browser, post_page, logger, Settings)
             username = get_username(browser, "post", logger)
             if username:
                 return username

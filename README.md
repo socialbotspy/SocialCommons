@@ -29,7 +29,7 @@
 <br />
 
 ---
-### Setup
+### Building and Packaging
 
 ```bash
 python3 -m pip install --user --upgrade setuptools wheel
@@ -45,19 +45,19 @@ python3 setup.py sdist bdist_wheel
 
 - Verify `SocialCommons.egg-info`, `build` and `dist` are recreated
 
-### Uploading to Test Pypi
+### Publishing package to Test Pypi
 ```bash
 python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
-- Visit `https://test.pypi.org/manage/project/socialcommons/releases/` and verify it has uploaded the latest changes.
+- Visit https://test.pypi.org/manage/project/socialcommons/releases/ and verify if it has uploaded the latest changes.
 
-### Uploading to Production Pypi
+### Publishing package to Production Pypi
 ```bash
 python3 -m twine upload dist/*
 ```
-- Visit `https://pypi.org/manage/project/socialcommons/releases/` and verify it has uploaded the latest changes.
+- Visit https://pypi.org/manage/project/socialcommons/releases/ and verify if it has uploaded the latest changes.
 
-### Install
+### Installation
 ```bash
 pip install -U SocialCommons
 ```

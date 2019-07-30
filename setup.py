@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='SocialCommons',
-    version='0.0.1',
+    version='0.0.2',
     author="Ishan Dutta",
     author_email="ishandutta2007@gmail.com",
     description="Common library for all XPy bots under socialbotspy",
