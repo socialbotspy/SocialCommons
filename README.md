@@ -1,25 +1,32 @@
 
 ## Projects aspired to be supported
 
+- [InstaPy](https://github.com/socialbotspy/InstaPy)
 - [FacebookPy](https://github.com/socialbotspy/FacebookPy)
 - [TwitterPy](https://github.com/socialbotspy/TwitterPy)
-- Google+
-- PinterestPy
+- [GooglePy](https://github.com/socialbotspy/GooglePy)
+- [GPlusPy](https://github.com/socialbotspy/GPlusPy)
+- [PinterestPy](https://github.com/socialbotspy/PinterestPy)
 - [LinkedinPy](https://github.com/socialbotspy/LinkedinPy)
-- YoutubePy
-- TumblrPy
-- RedditPy
-- QuoraPy
+- [MediumPy](https://github.com/socialbotspy/MediumPy)
+- [YoutubePy](https://github.com/socialbotspy/YoutubePy)
+- [TumblrPy](https://github.com/socialbotspy/TumblrPy)
+- [RedditPy](https://github.com/socialbotspy/RedditPy)
+- [QuoraPy](https://github.com/socialbotspy/QuoraPy)
 - SnapPy
-- WhatsappPy
+- [WhatsappPy](https://github.com/socialbotspy/WhatsappPy)
 - WeChatPy
+- [HangoutPy](https://github.com/socialbotspy/HangoutPy)
+- [MessengerPy](https://github.com/socialbotspy/MessengerPy)
 - DiscordPy
 - SlackPy
 - [GithubPy](https://github.com/socialbotspy/GithubPy)
+- TelegramPy
 - TwitchPy
 - TikTokPy
 - PeriscopePy
-- [InstaPy](https://github.com/timgrossmann/InstaPy/tree/master/instapy)
+- [GiveawayPy](https://github.com/socialbotspy/GiveawayPy)
+- [PTWPy](https://github.com/socialbotspy/PTWPy)
 
 [![MIT license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/socialbotspy/FacebookPy/blob/master/LICENSE)
 [![built with Selenium](https://img.shields.io/badge/built%20with-Selenium-yellow.svg)](https://github.com/SeleniumHQ/selenium)
