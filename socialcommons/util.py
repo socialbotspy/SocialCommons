@@ -8,7 +8,6 @@ import regex
 import signal
 import os
 import sys
-from sys import exit as clean_exit
 from platform import system
 from platform import python_version
 from subprocess import call
@@ -16,7 +15,6 @@ import csv
 import sqlite3
 import json
 from contextlib import contextmanager
-from tempfile import gettempdir
 import emoji
 from emoji.unicode_codes import UNICODE_EMOJI
 from argparse import ArgumentParser
@@ -1186,7 +1184,6 @@ def emergency_exit(browser, Settings, base_url, username, userid, logger, logfol
             return True, "not connected"
 
     # check if the user is logged in
-    auth_method = "activity counts"
     if login_state == None:
         login_state = check_authorization(browser, Settings, base_url, username, userid, method, logger, logfolder)
     if login_state is False:

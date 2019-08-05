@@ -234,7 +234,7 @@ def sentiment_analysis(text, language_of_text, Settings, logger):
             # @todo: polarity is assigned but never used
             if sentiment["score_tag"] not in ["N", "N+", "NONE"]:
                 if '?' in text:
-                    polarity = "NEU"
+                    pass
             return sentiment
 
         else:

@@ -107,7 +107,6 @@ def validate_database_address(Settings):
         slash = "\\" if "\\" in address else "/"
         address = address if address.endswith(slash) else address + slash
         address = address + Settings.platform_name + "py.db"
-        DATABASE_LOCATION = address
     verify_database_directories(address)
     return address
 
