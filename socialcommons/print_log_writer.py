@@ -14,13 +14,13 @@ def get_log_time():
 
     return log_time
 
-def log_follower_num(browser, Settings, base_url, username, userid, logfolder):
+def log_follower_num(browser, Settings, base_url, username, userid, logger, logfolder):
     """Prints and logs the current number of followers to
     a seperate file"""
     if base_url[-1] != '/':
         base_url = base_url + '/'
     user_link = base_url + userid
-    web_address_navigator( browser, user_link, Settings)
+    web_address_navigator(browser, user_link, logger, Settings)
 
     try:
         followed_by = browser.execute_script(
@@ -47,13 +47,13 @@ def log_follower_num(browser, Settings, base_url, username, userid, logfolder):
     return followed_by
 
 
-def log_following_num(browser, Settings, base_url, username, userid, logfolder):
+def log_following_num(browser, Settings, base_url, username, userid, logger, logfolder):
     """Prints and logs the current number of followers to
     a seperate file"""
     if base_url[-1] != '/':
         base_url = base_url + '/'
     user_link = base_url + userid
-    web_address_navigator( browser, user_link, Settings)
+    web_address_navigator(browser, user_link, logger, Settings)
 
     try:
         following_num = browser.execute_script(
