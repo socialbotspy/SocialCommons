@@ -33,7 +33,7 @@ def set_selenium_local_session(proxy_address,
 
     if use_firefox:
         firefox_options = Firefox_Options()
-        
+
         if headless_browser:
             firefox_options.add_argument('-headless')
 
@@ -146,7 +146,13 @@ def set_selenium_local_session(proxy_address,
     browser.implicitly_wait(page_delay)
 
     message = "Session started!"
-    highlight_print(Settings, 'browser', message, "initialization", "info", logger)
+    highlight_print(
+        Settings,
+        'browser',
+        message,
+        "initialization",
+        "info",
+        logger)
     print('')
 
     return browser, err_msg
@@ -178,7 +184,13 @@ def set_selenium_remote_session(use_firefox,
                 desired_capabilities=DesiredCapabilities.CHROME)
 
     message = "Session started!"
-    highlight_print(Settings, 'browser', message, "initialization", "info", logger)
+    highlight_print(
+        Settings,
+        'browser',
+        message,
+        "initialization",
+        "info",
+        logger)
     print('')
 
     return browser

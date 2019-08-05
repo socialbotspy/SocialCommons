@@ -33,6 +33,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import TimeoutException
 
+
 def is_private_profile(Settings, browser, logger, following=True):
     is_private = None
     try:
@@ -122,10 +123,10 @@ def validate_userid(browser,
 
         # get followers & following counts
         followers_count, following_count = get_relationship_counts(browser,
-                                                                base_url,
-                                                                userid,
-                                                                userid,
-                                                                logger, Settings)
+                                                                   base_url,
+                                                                   userid,
+                                                                   userid,
+                                                                   logger, Settings)
 
         if potency_ratio and potency_ratio < 0:
             potency_ratio *= -1
@@ -240,7 +241,7 @@ def validate_userid(browser,
 
     """Skip users"""
     # skip no profile pic
-        # if skip_no_profile_pic:
+    # if skip_no_profile_pic:
     #     try:
     #         profile_pic = getUserData("graphql.user.profile_pic_url", browser)
     #     except WebDriverException:
@@ -867,14 +868,19 @@ def get_following_count(browser, base_url, username, userid, logger, Settings):
             return None
     return following_count
 
-def get_followers_count_nonfriend_public_case(browser, username, userid, logger):
+
+def get_followers_count_nonfriend_public_case(
+        browser, username, userid, logger):
     try:
-        followers_text = browser.find_element_by_xpath('//*[@id="pagelet_collections_followers"]/div/div[1]/div/a[@role="button"]/span').text.strip()
-        followers_count = [format_number(s) for s in followers_text.split() if s.isdigit()][0]
+        followers_text = browser.find_element_by_xpath(
+            '//*[@id="pagelet_collections_followers"]/div/div[1]/div/a[@role="button"]/span').text.strip()
+        followers_count = [
+            format_number(s) for s in followers_text.split() if s.isdigit()][0]
     except NoSuchElementException as e2:
         logger.error(e2)
         return None
     return followers_count
+
 
 def get_followers_count(browser, base_url, username, userid, logger, Settings):
     """ Gets the followers & following counts of a given user """
@@ -892,16 +898,22 @@ def get_followers_count(browser, base_url, username, userid, logger, Settings):
         followers_count = format_number(
             browser.find_element_by_xpath(Settings.followers_count_xpath).text)
         if followers_count == 0:
-            followers_count = get_followers_count_nonfriend_public_case(browser, username, userid, logger)
+            followers_count = get_followers_count_nonfriend_public_case(
+                browser, username, userid, logger)
     except NoSuchElementException as e:
         logger.error(e)
-        followers_count = get_followers_count_nonfriend_public_case(browser, username, userid, logger)
+        followers_count = get_followers_count_nonfriend_public_case(
+            browser, username, userid, logger)
     return followers_count
 
-def get_relationship_counts(browser, base_url, username, userid, logger, Settings):
+
+def get_relationship_counts(
+        browser, base_url, username, userid, logger, Settings):
     """ Gets the followers & following counts of a given user """
-    followers_count = get_followers_count(browser, base_url, username, userid, logger, Settings)
-    following_count = get_following_count(browser, base_url, username, userid, logger, Settings)
+    followers_count = get_followers_count(
+        browser, base_url, username, userid, logger, Settings)
+    following_count = get_following_count(
+        browser, base_url, username, userid, logger, Settings)
     logger.info('followers_count = {}'.format(followers_count))
     logger.info('following_count = {}'.format(following_count))
     return followers_count, following_count
@@ -911,7 +923,7 @@ def web_address_navigator(browser, link, logger, Settings):
     """Checks and compares current URL of web page and the URL to be
     navigated and if it is different, it does navigate"""
     current_url = get_current_url(browser)
-    if current_url.strip("/")==link.strip("/"):
+    if current_url.strip("/") == link.strip("/"):
         return
     total_timeouts = 0
     page_type = None  # file or directory
@@ -1053,7 +1065,7 @@ def remove_duplicates(container, keep_order, logger):
     """ Remove duplicates from all kinds of data types easily """
     # add support for data types as needed in future
     # currently only 'list' data type is supported
-    if type(container) == list:
+    if isinstance(container, list):
         if keep_order is True:
             result = sorted(set(container), key=container.index)
 
@@ -1172,7 +1184,9 @@ def ping_server(host, logger):
 
     return True
 
-def emergency_exit(browser, Settings, base_url, username, userid, logger, logfolder, login_state=None):
+
+def emergency_exit(browser, Settings, base_url, username,
+                   userid, logger, logfolder, login_state=None):
     """ Raise emergency if the is no connection to server OR if user is not
     logged in """
     using_proxy = True if Settings.connection_type == "proxy" else False
@@ -1184,8 +1198,16 @@ def emergency_exit(browser, Settings, base_url, username, userid, logger, logfol
             return True, "not connected"
 
     # check if the user is logged in
-    if login_state == None:
-        login_state = check_authorization(browser, Settings, base_url, username, userid, method, logger, logfolder)
+    if login_state is None:
+        login_state = check_authorization(
+            browser,
+            Settings,
+            base_url,
+            username,
+            userid,
+            method,
+            logger,
+            logfolder)
     if login_state is False:
         return True, "not logged in"
 
@@ -1223,7 +1245,8 @@ def load_user_id(username, person, logger, logfolder):
     return user_id
 
 
-def check_authorization(browser, Settings, base_url, username, userid, method, logger, logfolder, notify=True):
+def check_authorization(browser, Settings, base_url, username,
+                        userid, method, logger, logfolder, notify=True):
     """ Check if user is NOW logged in """
     if notify is True:
         logger.info("Checking if '{}' is logged in...".format(username))
@@ -1248,6 +1271,7 @@ def check_authorization(browser, Settings, base_url, username, userid, method, l
             '{0}{1}_cookie.pkl'.format(logfolder, username), 'wb'))
         return True
     return False
+
 
 def get_username(browser, track, logger):
     """ Get the username of a user from the loaded profile page """
@@ -1388,7 +1412,7 @@ def explicit_wait(browser, track, ec_params, logger, timeout=35, notify=True):
         ec_name = "page fully loaded"
         condition = (lambda browser: browser.execute_script(
             "return document.readyState")
-                                     in ["complete" or "loaded"])
+            in ["complete" or "loaded"])
 
     elif track == "SO":
         ec_name = "staleness of"
@@ -1434,8 +1458,8 @@ def get_username_from_id(browser, base_url, user_id, logger):
 
     query_hash = "42323d64886122307be10013ad2dcc44"  # earlier-
     # "472f257a40c653c64c666ce877d59d2b"
-    graphql_query_URL = base_url+ "graphql/query/?query_hash" \
-                        "={}".format(query_hash)
+    graphql_query_URL = base_url + "graphql/query/?query_hash" \
+        "={}".format(query_hash)
     variables = {"id": str(user_id), "first": 1}
     post_url = u"{}&variables={}".format(graphql_query_URL,
                                          str(json.dumps(variables)))
@@ -1583,6 +1607,7 @@ def click_visibly(browser, Settings, element):
 
     return True
 
+
 def get_action_delay(action, Settings):
     """ Get the delay time to sleep after doing actions """
     defaults = {"like": 2,
@@ -1602,11 +1627,11 @@ def get_action_delay(action, Settings):
 
     # randomize the custom delay in user-defined range
     if (config["randomize"] is True and
-            type(config["random_range"]) == tuple and
+            isinstance(config["random_range"], tuple) and
             len(config["random_range"]) == 2 and
             all((type(i) in [type(None), int, float] for i in
                  config["random_range"])) and
-            any(type(i) is not None for i in config["random_range"])):
+            any(not isinstance(i, None) for i in config["random_range"])):
         min_range = config["random_range"][0]
         max_range = config["random_range"][1]
 
@@ -1738,9 +1763,10 @@ def save_account_progress(browser, base_url, username, logger, Settings):
         :logger: library to log actions
     """
     logger.info('Saving account progress...')
-    followers, following = get_relationship_counts(browser, base_url, username, userid, logger, Settings)
+    followers, following = get_relationship_counts(
+        browser, base_url, username, userid, logger, Settings)
 
-    #TODO:FIX IT
+    # TODO:FIX IT
     # save profile total posts
     # posts = getUserData("graphql.user.edge_owner_to_timeline_media.count",
     #                     browser)
@@ -1750,7 +1776,9 @@ def save_account_progress(browser, base_url, username, logger, Settings):
         # DB instance
         db, id = get_database(Settings)
         conn = sqlite3.connect(db)
-        logger.info('INSERTING Data INTO accountsProgress: {}, {}, {}, {}'.format(id, followers, following, posts))
+        logger.info(
+            'INSERTING Data INTO accountsProgress: {}, {}, {}, {}'.format(
+                id, followers, following, posts))
         with conn:
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
@@ -1777,7 +1805,9 @@ def get_users_from_dialog(base_url, old_data, dialog, logger):
         try:
             last_word = extract_text_from_element(u).split(' ')[-1]
             if last_word not in ['1', 'Close', 'mutual', 'friends', 'Message']:
-                loaded_users.append(u.get_attribute('href').replace(base_url, '').split('?')[0])
+                loaded_users.append(
+                    u.get_attribute('href').replace(
+                        base_url, '').split('?')[0])
         except Exception as e:
             logger.info(e)
 
@@ -1803,8 +1833,8 @@ def progress_tracker(current_value, highest_value, initial_time, logger):
         elapsed_formatted = truncate_float(elapsed_time, 2)
         elapsed = ("{} seconds".format(
             elapsed_formatted) if elapsed_formatted < 60 else
-                   "{} minutes".format(
-                       truncate_float(elapsed_formatted / 60, 2)))
+            "{} minutes".format(
+            truncate_float(elapsed_formatted / 60, 2)))
 
         eta_time = abs((elapsed_time * 100) / (
             progress_percent if progress_percent != 0 else 1) - elapsed_time)
@@ -1952,4 +1982,3 @@ class CustomizedArgumentParser(ArgumentParser):
         will give the location of the 'argparse.py' file that have this method.
         """
         return []
-

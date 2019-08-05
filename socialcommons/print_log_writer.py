@@ -8,13 +8,16 @@ from socialcommons.util import update_activity
 
 from selenium.common.exceptions import WebDriverException
 
+
 def get_log_time():
     ''' this method will keep same format for all recored'''
     log_time = datetime.now().strftime('%Y-%m-%d %H:%M')
 
     return log_time
 
-def log_follower_num(browser, Settings, base_url, username, userid, logger, logfolder):
+
+def log_follower_num(browser, Settings, base_url,
+                     username, userid, logger, logfolder):
     """Prints and logs the current number of followers to
     a seperate file"""
     if base_url[-1] != '/':
@@ -47,7 +50,8 @@ def log_follower_num(browser, Settings, base_url, username, userid, logger, logf
     return followed_by
 
 
-def log_following_num(browser, Settings, base_url, username, userid, logger, logfolder):
+def log_following_num(browser, Settings, base_url,
+                      username, userid, logger, logfolder):
     """Prints and logs the current number of followers to
     a seperate file"""
     if base_url[-1] != '/':

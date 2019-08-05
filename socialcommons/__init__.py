@@ -8,5 +8,3 @@ from .clarifai_util import *
 from .exceptions import *
 from .print_log_writer import *
 from .text_analytics import *
-
-

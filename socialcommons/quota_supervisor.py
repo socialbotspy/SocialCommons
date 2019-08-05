@@ -294,7 +294,7 @@ def toast_notification(Settings, notify, alert, job, interval):
 def get_icons(Settings):
     """ Return the locations of icons according to the operating system """
     # get full location of icons folder inside package
-    icons_path = get_pkg_resource_path(Settings.platform_name+"py", "icons/")
+    icons_path = get_pkg_resource_path(Settings.platform_name + "py", "icons/")
 
     windows_ico = [
         "Windows/qs_sleep_windows.ico",

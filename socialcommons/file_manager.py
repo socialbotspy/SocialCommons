@@ -101,14 +101,17 @@ def update_locations(Settings):
 
     # update database location
     if not Settings.DATABASE_LOCATION:
-        Settings.DATABASE_LOCATION = Settings.localize_path("FacebookPy", "db", Settings.platform_name+"py.db")
+        Settings.DATABASE_LOCATION = Settings.localize_path(
+            "FacebookPy", "db", Settings.platform_name + "py.db")
 
     # update chromedriver location
     if not Settings.chromedriver_location:
-        Settings.chromedriver_location = Settings.localize_path("FacebookPy",  "assets", Settings.specific_chromedriver)
+        Settings.chromedriver_location = Settings.localize_path(
+            "FacebookPy", "assets", Settings.specific_chromedriver)
         if (not Settings.chromedriver_location
                 or not path_exists(Settings.chromedriver_location)):
-            Settings.chromedriver_location = Settings.localize_path("FacebookPy", "assets", "chromedriver")
+            Settings.chromedriver_location = Settings.localize_path(
+                "FacebookPy", "assets", "chromedriver")
 
 
 def get_home_path():

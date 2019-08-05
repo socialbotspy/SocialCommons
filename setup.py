@@ -14,9 +14,7 @@ setup(
     description="Common library for all XPy bots under socialbotspy",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=['socialcommons',],
+    packages=['socialcommons', ],
     install_requires=dependencies,
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
 )
-
-
