@@ -1,3 +1,4 @@
+import setuptools
 from distutils.core import setup
 
 with open("requirements.txt") as f:
@@ -8,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='SocialCommons',
-    version='0.0.4',
+    version='0.0.5',
     author="Ishan Dutta",
     author_email="ishandutta2007@gmail.com",
     description="Common library for all XPy bots under socialbotspy",
