@@ -24,7 +24,8 @@ def set_selenium_local_session(proxy_address,
                                disable_image_load,
                                page_delay,
                                logger,
-                               Settings):
+                               Settings,
+                               passed_options=None):
     """Starts local session for a selenium server.
     Default case scenario."""
 
@@ -32,7 +33,10 @@ def set_selenium_local_session(proxy_address,
     err_msg = ''
 
     if use_firefox:
-        firefox_options = Firefox_Options()
+        if passed_options == None:
+            firefox_options = Firefox_Options()
+        else:
+            firefox_options = passed_options
 
         if headless_browser:
             firefox_options.add_argument('-headless')
@@ -68,7 +72,10 @@ def set_selenium_local_session(proxy_address,
 
     else:
         chromedriver_location = get_chromedriver_location(Settings)
-        chrome_options = Options()
+        if passed_options == None:
+            chrome_options = Options()
+        else:
+            chrome_options = passed_options
         chrome_options.add_argument("--mute-audio")
         chrome_options.add_argument('--dns-prefetch-disable')
         chrome_options.add_argument('--lang=en-US')
@@ -133,6 +140,8 @@ def set_selenium_local_session(proxy_address,
             err_msg = 'ensure chromedriver is installed at {}'.format(
                 Settings.chromedriver_location)
             return browser, err_msg
+        except Exception as e:
+            raise e
 
         # prevent: Message: unknown error: call function result missing 'value'
         matches = re.match(r'^(\d+\.\d+)',
@@ -146,13 +155,7 @@ def set_selenium_local_session(proxy_address,
     browser.implicitly_wait(page_delay)
 
     message = "Session started!"
-    highlight_print(
-        Settings,
-        'browser',
-        message,
-        "initialization",
-        "info",
-        logger)
+    highlight_print(Settings, 'browser', message, "initialization", "info", logger)
     print('')
 
     return browser, err_msg
@@ -184,13 +187,7 @@ def set_selenium_remote_session(use_firefox,
                 desired_capabilities=DesiredCapabilities.CHROME)
 
     message = "Session started!"
-    highlight_print(
-        Settings,
-        'browser',
-        message,
-        "initialization",
-        "info",
-        logger)
+    highlight_print(Settings, 'browser', message, "initialization", "info", logger)
     print('')
 
     return browser
