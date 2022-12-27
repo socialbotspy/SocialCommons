@@ -7,5 +7,5 @@ plyer == 1.4.0
 regex == 2019.2.7
 requests == 2.21.0
 selenium == 3.141.0
-setuptools == 41.0.1
+setuptools == 65.5.1
 wheel == 0.33.6
